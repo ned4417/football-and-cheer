@@ -58,6 +58,22 @@ const Schedule = () => {
     }> = [];
     const startDate = new Date('2025-09-13'); // Sept 13th, 2025
     
+    // Predefined team matchups to ensure consistent rendering
+    const teamMatchups = [
+      ['Pirates', 'Blackhawks'], ['Panthers', 'G-Men'], ['Highlanders', 'Bears'],
+      ['Falcons', 'United'], ['Wildcats', 'Pirates'], ['Blackhawks', 'Panthers'],
+      ['G-Men', 'Highlanders'], ['Bears', 'Falcons'], ['United', 'Wildcats'],
+      ['Pirates', 'Panthers'], ['Blackhawks', 'G-Men'], ['Highlanders', 'Falcons'],
+      ['Bears', 'United'], ['Wildcats', 'G-Men'], ['Pirates', 'Highlanders'],
+      ['Blackhawks', 'Bears'], ['Panthers', 'Falcons'], ['United', 'G-Men'],
+      ['Wildcats', 'Blackhawks'], ['Pirates', 'Bears'], ['Highlanders', 'Panthers'],
+      ['G-Men', 'Falcons'], ['United', 'Pirates'], ['Wildcats', 'Highlanders'],
+      ['Blackhawks', 'Falcons'], ['Panthers', 'United'], ['Bears', 'Wildcats'],
+      ['G-Men', 'Pirates'], ['Highlanders', 'Blackhawks'], ['Falcons', 'Panthers']
+    ];
+    
+    let matchupIndex = 0;
+    
     for (let week = 0; week < 6; week++) {
       const gameDate = new Date(startDate);
       gameDate.setDate(startDate.getDate() + (week * 7));
@@ -70,10 +86,11 @@ const Schedule = () => {
           const location = locations[gameNum % locations.length];
           const field = location.fields[gameNum % 2];
           
-          // Select teams that haven't played yet this week for this grade
-          const availableTeams = [...teams];
-          const homeTeam = availableTeams.splice(Math.floor(Math.random() * availableTeams.length), 1)[0];
-          const awayTeam = availableTeams.splice(Math.floor(Math.random() * availableTeams.length), 1)[0];
+          // Use predefined matchups instead of random selection
+          const matchup = teamMatchups[matchupIndex % teamMatchups.length];
+          const homeTeam = matchup[0];
+          const awayTeam = matchup[1];
+          matchupIndex++;
           
           // Game times: 9:00 AM, 11:00 AM, 1:00 PM, 3:00 PM
           const times = ['9:00 AM', '11:00 AM', '1:00 PM', '3:00 PM'];
