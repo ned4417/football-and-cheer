@@ -43,7 +43,19 @@ const Schedule = () => {
 
   // Generate schedule starting Sept 13th for 6 weeks
   const generateSchedule = () => {
-    const games = [];
+    const games: Array<{
+      id: string;
+      week: number;
+      date: string;
+      shortDate: string;
+      time: string;
+      grade: string;
+      homeTeam: string;
+      awayTeam: string;
+      location: string;
+      field: string;
+      address: string;
+    }> = [];
     const startDate = new Date('2025-09-13'); // Sept 13th, 2025
     
     for (let week = 0; week < 6; week++) {
