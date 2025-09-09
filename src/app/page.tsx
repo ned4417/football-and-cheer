@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Registration from '@/components/Registration';
-import Schedule from '@/components/Schedule';
+import SportsSection from '@/components/SportsSection';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Registration />
-      <Schedule />
+      <SportsSection />
     </div>
   );
 }

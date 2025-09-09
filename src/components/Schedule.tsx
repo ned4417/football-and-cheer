@@ -140,22 +140,21 @@ const Schedule = () => {
   const weeks = Array.from(new Set(schedule.map(game => game.week))).sort();
 
   return (
-    <section id="schedule" className="py-20">
-      <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-            2025 Season Schedule
-          </h2>
-          <p className="text-xl text-neutral-200 max-w-3xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}>
-            Games run every Saturday for 6 weeks starting September 13th
-          </p>
-        </motion.div>
+    <div>
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+          2025 Season Schedule
+        </h2>
+        <p className="text-xl text-neutral-200 max-w-3xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}>
+          Games run every Saturday for 6 weeks starting September 13th
+        </p>
+      </motion.div>
 
         {/* Filters */}
         <motion.div
@@ -313,8 +312,7 @@ const Schedule = () => {
             ))}
           </div>
         </motion.div>
-      </div>
-    </section>
+    </div>
   );
 };
 
